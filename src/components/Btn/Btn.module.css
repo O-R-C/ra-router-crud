@@ -13,3 +13,12 @@
 .btn:focus {
   background-color: #283593;
 }
+
+.delete {
+  background-color: #b04546;
+}
+
+.delete:hover,
+.delete:focus {
+  background-color: #7b2a2a;
+}

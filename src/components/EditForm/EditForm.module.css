@@ -1,0 +1,18 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  & textarea {
+    resize: none;
+    min-height: 100px;
+    padding: 10px;
+    font-size: 1.2rem;
+  }
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: end;
+}

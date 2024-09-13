@@ -1,28 +1,25 @@
 import PropTypes from 'prop-types'
-import { useNavigate } from 'react-router-dom'
-
+import Wrapper from '../Wrapper/Wrapper'
+import Controls from '../Controls/Controls'
 import styles from './Post.module.css'
 
-export default function Post({ author, content, id }) {
-  const navigate = useNavigate()
-
-  const clickHandler = () => {
-    navigate(`/posts/${id}`)
-  }
-
+export default function Post({ post: { author, content } = {} }) {
   return (
-    <div
-      className={styles.post}
-      onClick={clickHandler}
-    >
-      <h3>{author}</h3>
-      <p>{content}</p>
-    </div>
+    <Wrapper>
+      <div className={styles.post}>
+        <h3>{author}</h3>
+        <p>{content}</p>
+        <hr />
+        <Controls />
+      </div>
+    </Wrapper>
   )
 }
 
 Post.propTypes = {
-  author: PropTypes.string,
-  content: PropTypes.string,
-  id: PropTypes.string,
+  post: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+  }).isRequired,
 }

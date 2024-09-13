@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types'
 import Posts from '../Posts/Posts'
 import Header from '../Header/Header'
-import styles from './MainPage.module.css'
+// import styles from './Main.module.css'
 
-export default function MainPage({ posts = [] }) {
+export default function Main({ posts = [] }) {
   return (
-    <div className={styles.mainPage}>
+    <>
       <Header />
       <Posts posts={posts} />
-    </div>
+    </>
   )
 }
 
-MainPage.propTypes = {
+Main.propTypes = {
   posts: PropTypes.array,
 }
