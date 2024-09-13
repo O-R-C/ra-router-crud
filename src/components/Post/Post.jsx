@@ -2,13 +2,13 @@ import PropTypes from 'prop-types'
 import Wrapper from '../Wrapper/Wrapper'
 import Controls from '../Controls/Controls'
 import styles from './Post.module.css'
+import Card from '../Card/Card'
 
-export default function Post({ post: { author, content } = {} }) {
+export default function Post({ post }) {
   return (
     <Wrapper>
       <div className={styles.post}>
-        <h3>{author}</h3>
-        <p>{content}</p>
+        <Card {...post} />
         <hr />
         <Controls />
       </div>

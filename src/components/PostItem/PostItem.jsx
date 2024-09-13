@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types'
 import { useNavigate } from 'react-router-dom'
+import Card from '../Card/Card'
 
 import styles from './PostItem.module.css'
 
-export default function PostItem({ author, content, id }) {
+export default function PostItem({ post }) {
   const navigate = useNavigate()
 
   const clickHandler = () => {
-    navigate(`/posts/${id}`)
+    navigate(`/posts/${post.id}`)
   }
 
   return (
@@ -15,14 +16,15 @@ export default function PostItem({ author, content, id }) {
       className={styles.post}
       onClick={clickHandler}
     >
-      <h3>{author}</h3>
-      <p>{content}</p>
+      <Card {...post} />
     </div>
   )
 }
 
 PostItem.propTypes = {
-  author: PropTypes.string,
-  content: PropTypes.string,
-  id: PropTypes.string,
+  post: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+  }),
 }

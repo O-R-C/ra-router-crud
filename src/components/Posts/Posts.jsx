@@ -10,7 +10,7 @@ export default function Posts({ posts }) {
         posts.map((post) => (
           <li key={post.id}>
             <Wrapper>
-              <PostItem {...post} />
+              <PostItem post={post} />
             </Wrapper>
           </li>
         ))
