@@ -1,10 +1,9 @@
-import { Form, useNavigate, useLoaderData } from 'react-router-dom'
+import { Form, useNavigate } from 'react-router-dom'
 import Btn from '../Btn/Btn'
-import styles from './EditForm.module.css'
+import styles from './AddPostForm.module.css'
 
-export default function EditForm() {
+export default function AddPostForm() {
   const navigate = useNavigate()
-  const { data } = useLoaderData()
 
   const handleCancel = () => {
     navigate(-1)
@@ -12,14 +11,15 @@ export default function EditForm() {
 
   return (
     <div className={styles.container}>
+      <h2>Создать пост</h2>
       <Form
-        method='put'
-        action={`/posts/${data.id}/edit`}
+        method='post'
+        action={`/posts/new/add-post`}
         className={styles.form}
       >
         <textarea
           name='content'
-          defaultValue={data.content}
+          autoFocus
         />
         <div className={styles.buttons}>
           <Btn title='Сохранить' />
